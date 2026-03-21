@@ -294,28 +294,10 @@ body {
         max-width: 80px;
     }
 }
+/* ===== FIX MOBILE FLIP IMAGE DISAPPEARING ===== */
 @media (max-width: 768px) {
-    /* 1. Ensure the back of the card is visible and white */
-    .card .back {
-        background-size: cover !important;
-        background-repeat: no-repeat !important;
-        background-position: center !important;
-        background-color: #ffffff !important; 
-        display: block !important;
-        visibility: visible !important;
-    }
-
-    /* 2. Force the images to load again for mobile specifically */
-    .card[data-name="dog"] .back { background-image: url('dog.png') !important; }
-    .card[data-name="cat"] .back { background-image: url('cat.png') !important; }
-    .card[data-name="flower1"] .back { background-image: url('fl1.png') !important; }
-    .card[data-name="flower2"] .back { background-image: url('fl2.png') !important; }
-    .card[data-name="scenery"] .back { background-image: url('scene.png') !important; }
-    .card[data-name="icecream"] .back { background-image: url('ice.png') !important; }
-
-    /* 3. Ensure the card has a physical height to show the image */
-    .card {
-        min-height: 80px !important;
-        min-width: 80px !important;
+    .front, .back {
+        backface-visibility: hidden !important;
+        -webkit-backface-visibility: hidden !important;
     }
 }
