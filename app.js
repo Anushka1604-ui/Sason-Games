@@ -130,6 +130,7 @@ app.get("/logout", (req, res) => {
 // ------------------------------------------------
 
 // Start Server
-app.listen(4000, () =>
-    console.log("Server running on http://localhost:4000")
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () =>
+    console.log("Server running ...")
 );
