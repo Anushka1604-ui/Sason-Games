@@ -82,12 +82,12 @@ body {
 }
 
 
-.card[data-name="dog"] .back { background-image: url('../assets/dog.png'); }
-.card[data-name="cat"] .back { background-image: url('../assets/cat.png'); }
-.card[data-name="flower1"] .back { background-image: url('../assets/fl1.png'); }
-.card[data-name="flower2"] .back { background-image: url('../assets/fl2.png'); }
-.card[data-name="scenery"] .back { background-image: url('../assets/scene.png'); }
-.card[data-name="icecream"] .back { background-image: url('../assets/ice.png'); }
+.card[data-name="dog"] .back { background-image: url('../css/dog.png'); }
+.card[data-name="cat"] .back { background-image: url('../css/cat.png'); }
+.card[data-name="flower1"] .back { background-image: url('../css/fl1.png'); }
+.card[data-name="flower2"] .back { background-image: url('../css/fl2.png'); }
+.card[data-name="scenery"] .back { background-image: url('../css/scene.png'); }
+.card[data-name="icecream"] .back { background-image: url('../css/ice.png'); }
 
         /* Navbar Container */
  .navbar {
@@ -227,12 +227,12 @@ body {
         max-width: 90px;         /* Hard limit on width */
         margin: auto;            /* Centers cards inside their grid cells */
     }
-    .card[data-name="dog"] .back { background-image: url('../assets/dog.png'); }
-.card[data-name="cat"] .back { background-image: url('../assets/cat.png'); }
-.card[data-name="flower1"] .back { background-image: url('../assets/fl1.png'); }
-.card[data-name="flower2"] .back { background-image: url('../assets/fl2.png'); }
-.card[data-name="scenery"] .back { background-image: url('../assets/scene.png'); }
-.card[data-name="icecream"] .back { background-image: url('../assets/ice.png'); }
+    .card[data-name="dog"] .back { background-image: url('../css/dog.png'); }
+.card[data-name="cat"] .back { background-image: url('../css/cat.png'); }
+.card[data-name="flower1"] .back { background-image: url('../css/fl1.png'); }
+.card[data-name="flower2"] .back { background-image: url('../css/fl2.png'); }
+.card[data-name="scenery"] .back { background-image: url('../css/scene.png'); }
+.card[data-name="icecream"] .back { background-image: url('../css/ice.png'); }
 
     /* 3. Centering the Reset Button */
     .reset-btn {
