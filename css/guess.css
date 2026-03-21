@@ -1,17 +1,26 @@
-*{
-    margin: 0px;
-    padding: 0px;
+/* ================================
+   RESET & BODY
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 body {
     font-family: Arial, sans-serif;
-    background: #f6f7fb;
     text-align: center;
-    
-    background: linear-gradient(to bottom, #c7e8fe,rgb(252, 252, 199), #fae5f5);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, #c7e8fe, rgb(252, 252, 199), #fae5f5);
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
+/* ================================
+   TITLE
+================================ */
 .title {
     font-size: 32px;
     margin-top: 50px;
@@ -20,7 +29,9 @@ body {
     filter: drop-shadow(0 0 10px #00ffff);
 }
 
-
+/* ================================
+   GAME GRID
+================================ */
 .game {
     width: 650px;
     margin: auto;
@@ -29,6 +40,9 @@ body {
     gap: 15px;
 }
 
+/* ================================
+   CARD STYLING
+================================ */
 .card {
     width: 150px;
     height: 150px;
@@ -48,21 +62,35 @@ body {
     position: absolute;
     border-radius: 12px;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
-/* Front side (before flip) */
+/* Front side */
 .front {
     background: #4a90e2;
 }
 
-/* Back side (image side) */
+/* Back side (images) */
 .back {
     transform: rotateY(180deg);
     background-size: cover;
     background-position: center;
 }
 
-/* Reset Button */
+/* ================================
+   CARD BACKGROUNDS (PERMANENT FIX)
+   Images are in same folder as CSS
+================================ */
+.card[data-name="dog"] .back { background-image: url('dog.png'); }
+.card[data-name="cat"] .back { background-image: url('cat.png'); }
+.card[data-name="flower1"] .back { background-image: url('fl1.png'); }
+.card[data-name="flower2"] .back { background-image: url('fl2.png'); }
+.card[data-name="scenery"] .back { background-image: url('scene.png'); }
+.card[data-name="icecream"] .back { background-image: url('ice.png'); }
+
+/* ================================
+   RESET BUTTON
+================================ */
 .reset-btn {
     margin-left: 45%;
     margin-top: 25px;
@@ -74,185 +102,135 @@ body {
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
-    width:fit-content
+    width: fit-content;
 }
 
 .reset-btn:hover {
     background: #357ac9;
 }
 
-
-.card.back[data-name="dog"] .back { background-image: url('../css/dog.png'); }
-.card.back[data-name="cat"] .back { background-image: url('../css/cat.png'); }
-.card.back[data-name="flower1"] .back { background-image: url('../css/fl1.png'); }
-.card.back[data-name="flower2"] .back { background-image: url('../css/fl2.png'); }
-.card.back[data-name="scenery"] .back { background-image: url('../css/scene.png'); }
-.card.back[data-name="icecream"] .back { background-image: url('../css/ice.png'); }
-
-        /* Navbar Container */
- .navbar {
-            background: linear-gradient(90deg , #141e30 ,#243b55 , #02afde);
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            
-        }
-
-        /* Logo */
-.logo {
-            
-            display: inline-block;
-
-            text-wrap: unset ;
-            color: white;
-            font-size: 22px;
-            font-weight: bold;
-            text-decoration: none;
-            margin-left: 50px;
-            filter: drop-shadow(0 0 10px #19fefe);
-            animation: floatLeftRight 4s ease-in-out infinite;
+/* ================================
+   NAVBAR
+================================ */
+.navbar {
+    background: linear-gradient(90deg, #141e30, #243b55, #02afde);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-            
-        
-    @keyframes floatLeftRight {
+
+.logo {
+    display: inline-block;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 50px;
+    filter: drop-shadow(0 0 10px #19fefe);
+    animation: floatLeftRight 4s ease-in-out infinite;
+}
+
+@keyframes floatLeftRight {
     0%   { transform: translateX(0px); }
     50%  { transform: translateX(-30px); }
     100% { transform: translateX(0px); }
 }
 
-        /* Links */
 .nav-links a {
-            color: white;
-            margin-left: 20px;
-            text-decoration: none;
-            font-size: 16px;
-            transition: 0.3s;
-        }
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
 
 .nav-links a:hover {
-            color: #ffcc00;
-        }
-.img_logo{
-    
-    width: 100px;     /* change size as you want */
+    color: #ffcc00;
+}
+
+.img_logo {
+    width: 100px;
     height: 60px;
     margin-right: 20px;
     display: flex;
-    
-    
-}
-/* --- Desktop/General Fixes --- */
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
-/* --- Optimized Responsive Navbar --- */
+/* ================================
+   RESPONSIVE CSS
+================================ */
 @media (max-width: 768px) {
+    /* Navbar adjustments */
     .navbar {
-        padding: 8px 10px; /* Slimmer vertical padding */
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background: linear-gradient(90deg , #141e30 ,#243b55 , #02afde);
+        padding: 8px 10px;
         position: sticky;
         top: 0;
         z-index: 1000;
     }
 
-    /* Container for Logo + Title */
- .logo {
-        display: none !important;
-    }
-     @keyframes floatLeftRight {
-    0%   { transform: translateX(0px); }
-    50%  { transform: translateX(-15px); }
-    100% { transform: translateX(0px); }}
+    .logo { display: none !important; }
 
-
-    /* The Image: Made very small to save space */
     .img_logo {
-        width: 35px !important; 
+        width: 35px !important;
         height: 35px !important;
         margin-right: 0 !important;
         object-fit: contain;
     }
 
-    /* The "SASON GAMES" Text */
-    .logo-text-title { /* Or whatever class your text uses */
-        font-size: 14px !important;
-        color: white;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        white-space: nowrap;
-        
-    }
-
-    /* The Links: Tiny and tight on the right */
     .nav-links {
-        margin-left: 90px;;
-        display: flex !important; /* Keeps them visible */
-        gap: 8px; /* Very tight spacing */
+        margin-left: 90px;
+        display: flex !important;
+        gap: 8px;
     }
 
     .nav-links a {
         margin-left: 0 !important;
-        font-size: 11px !important; /* Small font like the screenshot */
-        color: white;
-        text-decoration: none;
+        font-size: 11px !important;
         white-space: nowrap;
     }
-}
-@media (max-width: 768px) {
-    /* 1. Centering and Shrinking the Grid */
+
+    /* Game grid adjustments */
     .game {
-        width: 90% !important; /* Prevents edge-to-edge crowding */
-        max-width: 320px;      /* Limits total width to keep boxes small */
-        margin: 40px auto !important; /* Centers the whole grid */
-        
-        /* Change to 3 columns to make individual boxes smaller */
-        grid-template-columns: repeat(3, 1fr) !important; 
+        width: 90% !important;
+        max-width: 320px;
+        margin: 40px auto !important;
+        grid-template-columns: repeat(3, 1fr) !important;
         gap: 10px;
         padding: 5px;
     }
 
-    /* 2. Making the Cards Smaller */
     .card {
-        width: 100% !important; 
-        height: 25vw !important; /* Scaled down from 28vw */
-        max-height: 90px;        /* Hard limit on height */
-        max-width: 90px;         /* Hard limit on width */
-        margin: auto;            /* Centers cards inside their grid cells */
+        width: 100% !important;
+        height: 25vw !important;
+        max-height: 90px;
+        max-width: 90px;
+        margin: auto;
     }
-    .card.back[data-name="dog"] .back { background-image: url('../css/dog.png'); }
-.card.back[data-name="cat"] .back { background-image: url('../css/cat.png'); }
-.card.back[data-name="flower1"] .back { background-image: url('../css/fl1.png'); }
-.card.back[data-name="flower2"] .back { background-image: url('../css/fl2.png'); }
-.card.back[data-name="scenery"] .back { background-image: url('../css/scene.png'); }
-.card.back[data-name="icecream"] .back { background-image: url('../css/ice.png'); }
 
-    /* 3. Centering the Reset Button */
+    /* Reset button centering */
     .reset-btn {
         display: block !important;
-        margin: 30px auto !important; /* 'auto' on sides is the key to centering */
-        width: 160px;                 /* Fixed width for a clean look */
+        margin: 30px auto !important;
+        width: 160px;
         padding: 10px 0;
         font-size: 16px;
-        float: none;                  /* Ensures no old floats break centering */
     }
 
-    /* 4. Adjusting the Title */
+    /* Title adjustments */
     .title {
         font-size: 22px;
         margin-top: 25px;
         margin-bottom: 15px;
     }
+
+    /* Mobile flip fix */
+    .front, .back {
+        backface-visibility: hidden !important;
+        -webkit-backface-visibility: hidden !important;
+    }
 }
 
-/* Extra Small Phones (iPhone SE etc) */
+/* Extra small phones */
 @media (max-width: 380px) {
     .game {
         max-width: 280px;
@@ -260,12 +238,5 @@ body {
     .card {
         max-height: 80px;
         max-width: 80px;
-    }
-}
-/* ===== FIX MOBILE FLIP IMAGE DISAPPEARING ===== */
-@media (max-width: 768px) {
-    .front, .back {
-        backface-visibility: hidden !important;
-        -webkit-backface-visibility: hidden !important;
     }
 }
