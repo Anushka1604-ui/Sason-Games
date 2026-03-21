@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, "js")));
 
 // ---------------- DATABASE ------------------
 // ❗ Important: Use Render environment variable (NOT localhost)
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("MongoDB Connected"))
     .catch(err => console.log("MongoDB Error:", err));
 
