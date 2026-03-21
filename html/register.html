@@ -15,7 +15,7 @@
       align-items: center;
       height: 100vh;
       margin: 0;
-      padding: 20px; /* prevents UI from touching edges on mobile */
+      padding: 20px;
       box-sizing: border-box;
     }
 
@@ -23,7 +23,7 @@
       background: white;
       padding: 25px;
       width: 100%;
-      max-width: 340px;      /* perfect size for phones + laptop */
+      max-width: 340px;
       border-radius: 12px;
       box-shadow: 0 0 12px rgba(0,0,0,0.25);
       animation: pop 0.4s ease;
@@ -38,6 +38,8 @@
       text-align: center;
       margin-bottom: 22px;
       font-size: 22px;
+      color: #0f172a;
+      font-weight: bold;
     }
 
     input {
@@ -48,6 +50,13 @@
       border-radius: 6px;
       font-size: 16px;
       box-sizing: border-box;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    input:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0,123,255,0.3);
     }
 
     button {
@@ -71,7 +80,7 @@
       background: #10b981;
     }
 
-    /* 🔥 Extra Small Devices Fix (≤ 350px width) */
+    /* 🔥 Extra Small Devices Fix */
     @media (max-width: 350px) {
       .box {
         padding: 18px;
@@ -93,7 +102,7 @@
   <h2>Create Account</h2>
 
   <input id="name" placeholder="Name">
-  <input id="email" placeholder="Email">
+  <input id="email" placeholder="Email" type="email">
   <input id="password" placeholder="Password" type="password">
 
   <button onclick="registerUser()">Register</button>
@@ -111,19 +120,24 @@ async function registerUser() {
     return;
   }
 
-  const res = await fetch("/register", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, password })
-  });
+  try {
+    const res = await fetch("/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, password })
+    });
 
-  const data = await res.json();
+    const data = await res.json();
 
-  if (data.error) {
-    alert(data.error);
-  } else {
-    alert("Registration successful!");
-    window.location.href = "login.html";
+    if (data.error) {
+      alert(data.error);
+    } else {
+      alert("Registration successful 🎉");
+      window.location.href = "login.html";
+    }
+
+  } catch (err) {
+    alert("Server not reachable");
   }
 }
 

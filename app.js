@@ -7,58 +7,52 @@ const path = require("path");
 
 const app = express();
 
-// -------------- MOBILE-SAFE CORS ----------------
+// ------------------- CORS -------------------
 app.use(cors({
-    origin: "*",       // mobile browsers allowed
+    origin: "*",
     methods: "GET,POST",
     allowedHeaders: "Content-Type,Authorization"
 }));
 
 app.use(express.json());
-// ------------------------------------------------
 
-// Static folders
+// ---------------- STATIC FILES --------------
 app.use(express.static(path.join(__dirname, "html")));
 app.use(express.static(path.join(__dirname, "css")));
 app.use(express.static(path.join(__dirname, "js")));
 
-// DB
-mongoose.connect("mongodb://localhost:27017")
-    .then(() => console.log("DB Connected"))
-    .catch(err => console.log(err));
+// ---------------- DATABASE ------------------
+// ❗ Important: Use Render environment variable (NOT localhost)
+mongoose.connect(process.env.MONGO_URL)
+    .then(() => console.log("MongoDB Connected"))
+    .catch(err => console.log("MongoDB Error:", err));
 
-// User Model
+// ---------------- USER MODEL ----------------
 const User = mongoose.model("User", new mongoose.Schema({
     name: String,
     email: { type: String, unique: true },
     password: String
 }));
 
-// ------------ JWT Middleware ------------------
+// ---------------- JWT MIDDLEWARE ------------
 function verifyToken(req, res, next) {
     const token = req.headers.authorization;
 
     if (!token) {
-        return res.status(401).sendFile(
-            path.join(__dirname, "html", "error.html")
-        );
+        return res.status(401).sendFile(path.join(__dirname, "html", "error.html"));
     }
 
     jwt.verify(token, "SECRET123", (err, decoded) => {
         if (err) {
-            return res.status(403).sendFile(
-                path.join(__dirname, "html", "error.html")
-            );
+            return res.status(403).sendFile(path.join(__dirname, "html", "error.html"));
         }
 
         req.user = decoded;
         next();
     });
 }
-// ----------------------------------------------
 
-
-// ---------------- HTML ROUTES -----------------
+// ---------------- HTML ROUTES ---------------
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "html", "register.html"));
 });
@@ -67,32 +61,27 @@ app.get("/register", (req, res) => {
     res.sendFile(path.join(__dirname, "html", "register.html"));
 });
 
-// CORRECT LOGIN PAGE
 app.get("/login", (req, res) => {
     res.sendFile(path.join(__dirname, "html", "login.html"));
 });
 
-// Protect dashboard
 app.get("/dashboard", verifyToken, (req, res) => {
     res.sendFile(path.join(__dirname, "html", "dashboard.html"));
 });
 
-// Error Page
 app.get("/error", (req, res) => {
     res.sendFile(path.join(__dirname, "html", "error.html"));
 });
-// ------------------------------------------------
 
+// ---------------- API ROUTES ----------------
 
-// ----------- API ROUTES (mobile-safe) ----------
-
-// Dashboard data
+// dashboard data
 app.get("/dashboard-data", verifyToken, async (req, res) => {
     const user = await User.findById(req.user.id).select("-password");
     res.json(user);
 });
 
-// Register
+// register
 app.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
 
@@ -106,7 +95,7 @@ app.post("/register", async (req, res) => {
     res.json({ message: "Registration successful" });
 });
 
-// Login
+// login
 app.post("/login", async (req, res) => {
     const { email, password } = req.body;
 
@@ -116,21 +105,18 @@ app.post("/login", async (req, res) => {
     const match = await bcrypt.compare(password, user.password);
     if (!match) return res.json({ error: "Incorrect password" });
 
-    const token = jwt.sign({ id: user._id }, "SECRET123", {
-        expiresIn: "1h"
-    });
+    const token = jwt.sign({ id: user._id }, "SECRET123", { expiresIn: "1h" });
 
     res.json({ message: "Login successful", token });
 });
 
-// Logout
+// logout
 app.get("/logout", (req, res) => {
     res.redirect("/login");
 });
-// ------------------------------------------------
 
-// Start Server
+// ---------------- START SERVER --------------
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () =>
-    console.log("Server running ...")
-);
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});

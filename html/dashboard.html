@@ -5,81 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SASON_GAMES</title>
     <link rel="stylesheet" href="/dashboard.css">
-    
 </head>
 
 <body>
 
+    <!-- NAVBAR -->
     <div class="navbar">
-        
-         <div class="img_logo">
-         <img src="sason_logo.png"   alt="Sason Games Logo" > 
-
-         <div  class="logo">SASON GAMES</div>
-       
-         </div>
+        <div class="img_logo">
+            <img src="/sason_logo.png" alt="Sason Games Logo">
+            <div class="logo">SASON GAMES</div>
+        </div>
 
         <div class="nav-links">
-            <a href="/dashboard.html">Home</a>
-            <a href="/dashboard.html">Games</a>
-            <a href="/register.html">Register</a>
-            <a href="/login.html">Login</a>
+            <a href="/dashboard">Home</a>
+            <a href="/dashboard">Games</a>
+            <a href="/register">Register</a>
+            <a href="/login">Login</a>
             <a href="#" onclick="logoutUser()">Logout</a>
         </div>
     </div>
+
+    <!-- SIDEBAR -->
     <div class="sidebar">
-    <h2 class="logo-text">SASON GAMES</h2>
+        <h2 class="logo-text">SASON GAMES</h2>
 
-    <ul class="nav-links-side">
-        <li><a href="#">🏠 Dashboard</a></li>
-        <li><a href="/modettt.html">🎮 Tic Tac Toe</a></li>
-        <li><a href="/s-p-s.html">🪨✂️📄 Stone Paper Scissor</a></li>
-        <li><a href="/card.html">🃏Memory Card Guess</a></li>
-        <li><a href="/quiz.html">🧠 Maths Quiz</a></li>
-        <div class="dropdown">
-         <button class="dropbtn">⚙ Settings</button>
+        <ul class="nav-links-side">
+            <li><a href="/dashboard">🏠 Dashboard</a></li>
+            <li><a href="/modettt.html">🎮 Tic Tac Toe</a></li>
+            <li><a href="/s-p-s.html">🪨✂️📄 Stone Paper Scissor</a></li>
+            <li><a href="/card.html">🃏 Memory Card Guess</a></li>
+            <li><a href="/quiz.html">🧠 Maths Quiz</a></li>
 
-            <div class="dropdown-content">
-             <li>
-            <a href="contactus.html">Contact Us</a>
-            <a href="register.html">register</a>
-            <a href="login.html">login</a>
-            <a href="logout" onclick="logoutUser()">Logout</a>
-             </li>
+            <div class="dropdown">
+                <button class="dropbtn">⚙ Settings</button>
+                <div class="dropdown-content">
+                    <li>
+                        <a href="/contactus.html">Contact Us</a>
+                        <a href="/register">Register</a>
+                        <a href="/login">Login</a>
+                        <a href="#" onclick="logoutUser()">Logout</a>
+                    </li>
+                </div>
             </div>
-        </div>
-            
-       
-    </ul>
-</div>
-
-
-    <div class="container">
-       <a href="modettt.html"><div class="container1"></div></a> 
-        <a href="s-p-s.html"><div class="container2"> </div></a>
-        <a href="card.html"><div class="container3"> </div></a>
-        <a href="quiz.html"><div class="container4"> </div></a>
+        </ul>
     </div>
 
+    <!-- GAME CARDS -->
+    <div class="container">
+        <a href="modettt.html"><div class="container1"></div></a> 
+        <a href="s-p-s.html"><div class="container2"></div></a>
+        <a href="card.html"><div class="container3"></div></a>
+        <a href="quiz.html"><div class="container4"></div></a>
+    </div>
+
+    <!-- FOOTER -->
     <footer class="footer">
         <h5>About Us</h5>
-        <div class="abt
-        ">Sason Games is a fun and interactive gaming platform created to provide simple yet engaging games for everyone. It features classic games like Tic Tac Toe, Stone Paper Scissors, a Card Guessing Game, and a Math Quiz to test both your luck and your brain.
 
-        The platform is designed with a clean and user-friendly interface, making it easy for anyone to play and enjoy. Whether you want quick entertainment or a little mental challenge, Sason Games has something for you.
+        <div class="abt">
+            Sason Games is a fun and interactive platform offering classic games like Tic Tac Toe,
+            Stone Paper Scissors, Card Guessing Game, and a Maths Quiz. Designed with simplicity
+            and creativity, it provides an enjoyable experience for all ages.
+        </div>
 
-        Built with creativity and passion, Sason Games reflects a love for coding and game development, bringing enjoyable experiences to users in a simple and accessible way.</div>
-
-      <p>© 2026 Sason Games | Created by Anushka Singh | All Rights Reserved</p>
+        <p>© 2026 Sason Games | Created by Anushka Singh | All Rights Reserved</p>
     </footer>
-   
+
+    <!-- AUTH SCRIPT -->
     <script>
-     if (!localStorage.getItem("token")) {
-    window.location.href = "login.html";}
+        // 🔐 Check login
+        if (!localStorage.getItem("token")) {
+            window.location.href = "/login";
+        }
 
-    function logoutUser() {
+        // 🧑‍💻 Fetch dashboard user data
+        fetch("/dashboard-data", {
+            headers: {
+                "Authorization": localStorage.getItem("token")
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log("Logged-in User:", data);
+        })
+        .catch(err => {
+            console.log("Auth error:", err);
+            window.location.href = "/login";
+        });
 
-    window.location.href = "/logout";}
+        // 🚪 Logout
+        function logoutUser() {
+            localStorage.removeItem("token");  // remove JWT
+            window.location.href = "/login";   // redirect
+        }
     </script>
+
 </body>
 </html>

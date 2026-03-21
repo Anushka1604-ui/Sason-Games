@@ -38,6 +38,7 @@
       text-align: center;
       margin-bottom: 20px;
       font-size: 22px;
+      color: #333;
     }
 
     input {
@@ -48,6 +49,12 @@
       border-radius: 6px;
       font-size: 16px;
       box-sizing: border-box;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    input:focus {
+      border-color: #28a745;
     }
 
     button {
@@ -88,7 +95,7 @@
 <div class="box">
   <h2>Login</h2>
 
-  <input id="email" placeholder="Email">
+  <input id="email" placeholder="Email" type="email">
   <input id="password" placeholder="Password" type="password">
 
   <button onclick="login()">Login</button>
@@ -104,20 +111,25 @@ async function login() {
     return;
   }
 
-  let res = await fetch("/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password })
-  });
+  try {
+    let res = await fetch("/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password })
+    });
 
-  res = await res.json();
+    const data = await res.json();
 
-  if (res.token) {
-    localStorage.setItem("token", res.token);
-    alert("Login Successful");
-    window.location.href = "dashboard.html";
-  } else {
-    alert(res.error);
+    if (data.token) {
+      localStorage.setItem("token", data.token);
+      alert("Login Successful 🎉");
+      window.location.href = "/dashboard.html";
+    } else {
+      alert(data.error || "Login failed");
+    }
+
+  } catch (err) {
+    alert("Server not reachable");
   }
 }
 </script>
