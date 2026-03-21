@@ -1,0 +1,262 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: url("ttt.png");
+}
+.navbar {
+            background: linear-gradient(90deg , #141e30 ,#243b55 , #02afde);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+        }
+
+        /* Logo */
+.logo {
+            
+            display: inline-block;
+            text-wrap: unset ;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-left: 50px;
+            filter: drop-shadow(0 0 10px #19fefe);
+            animation: floatLeftRight 4s ease-in-out infinite;
+}
+            
+        
+    @keyframes floatLeftRight {
+    0%   { transform: translateX(0px); }
+    50%  { transform: translateX(-30px); }
+    100% { transform: translateX(0px); }
+}
+
+        /* Links */
+.nav-links a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+.nav-links a:hover {
+            color: #ffcc00;
+        }
+.img_logo{
+    width: 100px;     /* change size as you want */
+    height: 60px;
+    margin-right: 20px;
+    display: flex;
+    
+    
+}
+h1{
+    text-align: center;
+    font-size: 15vmin;
+    color: rgb(4, 45, 45);
+    filter: drop-shadow(0 0 20px #00ffff);
+    font-weight: 1000;
+}
+p{
+    font-size: 8vmin;
+    text-align: center;
+   
+}
+#ng{
+    font-size: 4vmin;
+    margin-left: 85vmin;
+    margin-top: 10vmin;
+    padding :2vmin;
+    background-color: #0f4146;
+    color: aliceblue;
+     
+ }
+ #ng:hover{
+    box-shadow: 0px 4px 4px 4px rgb(229, 255, 0);
+     opacity: 70%;
+ }
+.game-container{
+    margin-top: 10vmin;
+    margin-left: 68vmin;
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+     gap: 1.5vmin;
+}
+.box{
+    width : 18vmin;
+    height : 18Vmin;
+    gap : 2vmin;
+    background-color: rgb(9, 58, 58);
+    border-radius: 20%;
+    border : none;
+    font-size :5vmin;
+    color : whitesmoke;
+
+
+}
+.box:hover{
+    opacity:50%;
+    box-shadow: 2px 0px 2px 2px rgb(201, 230, 143);
+}
+.hide {
+    display: none !important;
+    
+}
+#reset-btn{ 
+    margin-top: 7Vmin;
+    margin-bottom:3vmin ;
+    font-size: 4Vmin;
+    background-color: rgb(14, 49, 49);
+    color: aliceblue;
+    border-radius: 10%;
+    padding: 2vmin;
+    margin-left: 43%;
+}
+#reset-btn:hover{
+    box-shadow: 0px 4px 4px 4px rgb(229, 255, 0);
+    opacity: 70%;
+}
+#msg{
+ width:500px;
+ height:200px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ align-content: center;
+ margin-left: 500px;
+ margin-top: 100px;
+ background-color: #0f4146;
+ filter: drop-shadow(0 0 20px #00ffff);
+ color: aliceblue;
+  animation: floatUpDown 2s ease-in-out infinite alternate;
+ 
+ 
+}
+@keyframes floatUpDown {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+
+/* --- Optimized Responsive Navbar --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 8px 10px; /* Slimmer vertical padding */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: linear-gradient(90deg , #141e30 ,#243b55 , #02afde);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    /* Container for Logo + Title */
+    .logo {
+            display: none !important;}
+
+    /* The Image: Made very small to save space */
+    .img_logo {
+        width: 35px !important; 
+        height: 35px !important;
+        margin-right: 0 !important;
+        object-fit: contain;
+    }
+
+    /* The "SASON GAMES" Text */
+    .logo-text-title { /* Or whatever class your text uses */
+        font-size: 14px !important;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+    }
+
+    /* The Links: Tiny and tight on the right */
+    .nav-links {
+        display: flex !important; /* Keeps them visible */
+        gap: 8px; /* Very tight spacing */
+    }
+
+    .nav-links a {
+        margin-left: 0 !important;
+        font-size: 11px !important; /* Small font like the screenshot */
+        color: white;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+/* --- Add this inside your @media (max-width: 768px) block --- */
+
+    /* 1. Header & Text Fixes */
+    h1 {
+        font-size: 12vmin !important;
+        margin-top: 20px;
+    }
+
+    p {
+        font-size: 6vmin !important;
+        margin: 10px 0;
+    }
+
+    /* 2. THE GAME BOARD: Centering & Resizing */
+    .game-container {
+        margin: 20px auto !important; /* This removes the 68vmin margin */
+        height: 85vw !important;     /* Scale based on screen width */
+        width: 85vw !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2vw !important;
+    }
+
+    /* 3. THE BOXES: Making them fit perfectly */
+    .box {
+        width: 25vw !important;      /* 3 boxes at 25vw fits perfectly in 85vw container */
+        height: 25vw !important;
+        font-size: 10vw !important;  /* Responsive X and O size */
+        border-radius: 15%;
+    }
+
+    /* 4. BUTTONS: Centering Reset and New Game */
+    #reset-btn {
+        margin: 20px auto !important; /* Overrides the margin-left: 43% */
+        display: block;
+        width: 160px;
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    #ng {
+        margin: 20px auto !important; /* Overrides margin-left: 85vmin */
+        display: block;
+        font-size: 18px;
+        width: fit-content;
+        padding: 10px 20px;
+    }
+
+    /* 5. WINNER MESSAGE: Professional & Responsive */
+    #msg {
+        width: 90% !important;        /* Prevents fixed 500px overflow */
+        height: auto !important;      /* Grows with text */
+        margin: 20px auto !important; /* Centers it horizontally */
+        padding: 20px;
+        font-size: 22px;
+        box-sizing: border-box;
+    }
+}
+/* --- End of Mobile Part --- */

@@ -1,0 +1,343 @@
+*{
+    margin:0px;
+    padding: 0px;
+
+}
+body{
+   background-image: url("s.png");
+   background-position: top;
+   background-size: top;
+   background-repeat: no-repeat;
+   
+
+  
+}
+.navbar {
+            background: linear-gradient(90deg , #141e30 ,#243b55 , #02afde);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+        }
+
+        /* Logo */
+.logo {
+            
+            display: inline-block;
+            text-wrap: unset ;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-left: 50px;
+            filter: drop-shadow(0 0 10px #19fefe);
+            animation: floatLeftRight 4s ease-in-out infinite;
+}
+            
+        
+    @keyframes floatLeftRight {
+    0%   { transform: translateX(0px); }
+    50%  { transform: translateX(-30px); }
+    100% { transform: translateX(0px); }
+}
+
+        /* Links */
+.nav-links a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+.nav-links a:hover {
+            color: #ffcc00;
+        }
+.img_logo{
+    width: 100px;     /* change size as you want */
+    height: 60px;
+    margin-right: 20px;
+    display: flex;
+    
+    
+}
+h1{
+    text-align:center ;
+    font-size: 70px;
+    color: aliceblue;
+    margin-top: 40px;
+    margin-left: 330px;
+    filter: drop-shadow(0 0 20px #000000);
+    -webkit-text-stroke: 1px #000;
+}
+.icons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 90px;
+    margin-left: 400px;
+    gap :40px;
+    margin-bottom: 40px;
+}
+.stn{
+    width:170px;
+    height: 170px;
+    border-radius: 50%;
+     background-image: url("stnm.PNG");
+     background-position: center;
+     background-repeat: no-repeat;
+       background-size: contain;
+     background-color: aliceblue;
+}
+.ppr{
+    width:170px;
+    height: 170px;
+    border-radius: 50%;
+    background-image: url("ppr.PNG");
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: contain;
+     background-color: aliceblue;
+}
+.sc{
+    width:170px;
+    height: 170px;
+    border-radius: 50%;
+    background-image: url("scs.PNG");
+     background-position: center;
+     background-repeat: no-repeat;
+        background-size: contain;
+     background-color: aliceblue;
+}
+
+
+
+.resultbtn{
+  margin-left: 860px;
+   animation: slideIn 4s ease-out infinite;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #00eaff;
+  background: transparent;
+  border: 2px solid #00eaff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-shadow: 0 0 10px #00eaff;
+}
+.resultbtn {
+    transition: transform 0.5s ease;
+}
+
+.resultbtn.slide {
+    transform: translateX(150px);
+}
+.resultbtn:hover {
+  box-shadow: 0 0 20px #00eaff;
+  transform: scale(1.08);}
+
+
+
+  /* Scoreboard container */
+.scoreboard {
+  position: fixed;
+  bottom: 100px;
+  left: 65%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px; /* space between blocks */
+  z-index: 1000;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Individual score blocks */
+.score-block {
+  background: #ffffff;
+  padding: 15px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 120px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect (optional) */
+.score-block:hover {
+  transform: translateY(-5px);
+}
+
+/* Labels */
+.label {
+  margin: 0;
+  font-size: 16px;
+  color: #555;
+  font-weight: 600;
+}
+
+/* Score numbers */
+.score span {
+  font-size: 28px;
+  font-weight: 700;
+  color: #007bff;
+  display: inline-block;
+  min-width: 25px;
+  text-align: center;
+  transition: transform 0.5s ease, color 0.5s ease;
+}
+
+/* Score update animation */
+.score span.update {
+  transform: translateX(10px);
+  color: #0056b3;
+  animation: scoreMove 0.5s forwards;
+}
+
+@keyframes scoreMove {
+  0% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(10px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.restart{
+  position: fixed;
+  bottom: 30px;
+  margin-left: 950px;
+  font-size: 20px;
+  background-color: navy;
+  color :white;
+  padding :10px;
+  border-radius: 10%;
+ filter: drop-shadow(0 0 10px #19fefe);
+}
+/* --- Optimized Responsive Navbar --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 8px 10px; /* Slimmer vertical padding */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: linear-gradient(90deg , #141e30 ,#243b55 , #02afde);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    /* Container for Logo + Title */
+    .logo {
+       display: none !important;}
+    /* The Image: Made very small to save space */
+    .img_logo {
+        width: 35px !important; 
+        height: 35px !important;
+        margin-right: 0 !important;
+        object-fit: contain;
+    }
+
+    /* The "SASON GAMES" Text */
+    .logo-text-title { /* Or whatever class your text uses */
+        font-size: 14px !important;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+    }
+
+    /* The Links: Tiny and tight on the right */
+    .nav-links {
+        display: flex !important; /* Keeps them visible */
+        gap: 8px; /* Very tight spacing */
+    }
+
+    .nav-links a {
+        margin-left: 0 !important;
+        font-size: 11px !important; /* Small font like the screenshot */
+        color: white;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+}
+/* ---------------- MOBILE RESPONSIVE ---------------- */
+@media screen and (max-width: 768px) {
+    body {
+        /* This forces the image to fill the entire phone screen */
+        background-image: url("s.png") !important;
+        background-size: 100% 100% !important; /* Stretches to fill every corner */
+        background-attachment: fixed;
+        background-position: center !important;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overflow-x: hidden; /* Prevents side-scrolling */
+    }
+
+    /* 1. Heading Fix */
+    h1 {
+        font-size: 10vw !important; /* Scales with screen width */
+        margin-left: 0 !important;   /* Removes the 330px desktop margin */
+        margin-top: 30px !important;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* 2. Game Icons: Centered and Smaller */
+    .icons {
+        margin-left: 0 !important;   /* Removes 400px desktop margin */
+        margin-top: 50px !important;
+        display: flex;
+        justify-content: center;
+        gap: 15px;                   /* Tight gap so they fit in one row */
+    }
+
+    .stn, .ppr, .sc {
+        width: 90px !important;      /* Smaller circles to fit side-by-side */
+        height: 90px !important;
+        background-size: 70% !important; /* Keeps the rock/paper/scissor img visible */
+    }
+
+    /* 3. Result Button: Centered */
+    .resultbtn {
+        margin: 40px auto !important; /* Centers button perfectly */
+        display: block !important;
+        position: relative !important;
+        left: 0 !important;
+        width: fit-content;
+        animation: none !important;    /* Stops desktop sliding animation */
+    }
+
+    /* 4. Scoreboard: No longer fixed (so you can scroll to it) */
+    .scoreboard {
+        position: relative !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        margin: 30px auto !important;
+        width: 90%;
+        justify-content: center;
+    }
+
+    .score-block {
+        min-width: 90px !important;
+        padding: 10px !important;
+    }
+
+    /* 5. Restart Button: Centered at bottom */
+    .restart {
+        position: relative !important;
+        margin: 20px auto 40px auto !important;
+        display: block !important;
+        bottom: 0 !important;
+        left: 0 !important;
+    }
+}

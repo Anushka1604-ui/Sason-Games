@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="/tictt.css">
+</head>
+<body>
+     <div class="navbar">
+         <div class="img_logo">
+         <img src="sason_logo.png"   alt="Sason Games Logo" > 
+
+         <div  class="logo">SASON GAMES</div>
+       
+         </div>
+
+        <div class="nav-links">
+            <a href="/dashboard.html">Home</a>
+            <a href="/dashboard.html">Games</a>
+            <a href="/register.html">Register</a>
+            <a href="/login.html">Login</a>
+            <a href="#" onclick="logoutUser()">Logout</a>
+        </div>
+    </div>
+    <H1>LET's PLAY</H1>
+    <div class="msg-container-hide hide">
+     <p id = "msg"> </p>
+     <Button id ="ng">New Game </Button>
+    </div>
+
+     <main>
+         <div class="game-container">
+         <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+         </div>
+         <button id="reset-btn">Reset Game</button>
+    </main>
+    <script id="game-script"></script>
+
+<script>
+// Read mode from URL
+const urlParams = new URLSearchParams(window.location.search);
+const mode = urlParams.get("mode"); // pvp or pvc
+
+const script = document.getElementById("game-script");
+
+// Load correct JS file
+if (mode === "pvp") {
+    script.src = "tictt.js";
+} else if (mode === "pvc") {
+    script.src = "tictt2.js";
+} else {
+    alert("Invalid mode!");
+}
+function logoutUser() {
+    window.location.href = "/logout";}
+
+</script>
+
+</body>
+</html>

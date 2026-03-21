@@ -1,0 +1,277 @@
+*{
+    margin: 0px;
+    padding:0px;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: #f6f7fb;
+    text-align: center;
+    
+    background-image:url("maths.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.title {
+    margin-top: 40px;
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #ffffff;
+    filter: drop-shadow(0 0 40px #002089d6);
+}
+
+.quiz-box {
+    width: 350px;
+   
+    margin: auto;
+    background: rgb(0, 29, 93);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 10px #ddd;
+   filter: drop-shadow(0 0 40px #19fefe);
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+#question {
+    color: #ddd;
+    font-size: 30px;
+    margin:70px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px #e1ff4a);
+}
+
+#answer {
+    width: 85%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+button {
+    width: fit-content;
+    padding: 12px;
+    margin: 6px 0;
+    font-size: 18px;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #357ac9;
+}
+
+#result {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+#start{
+    background-color: green;
+    width: fit-content;
+    margin-top: 100px;
+    font-size: 25px;
+}
+#stop{
+    background-color: red;
+    margin-top: 100px;
+    width:fit-content;
+    font-size: 25px;
+}
+#score,#time{
+    color: white;
+    font-size: 20px;
+}
+p{
+    color:white;
+}
+.navbar {
+            background: linear-gradient(90deg , #141e30 ,#243b55 , #02afde);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+        }
+
+        /* Logo */
+.logo {
+            
+            display: inline-block;
+            text-wrap: unset ;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-left: 50px;
+            filter: drop-shadow(0 0 10px #19fefe);
+            animation: floatLeftRight 4s ease-in-out infinite;
+}
+            
+        
+    @keyframes floatLeftRight {
+    0%   { transform: translateX(0px); }
+    50%  { transform: translateX(-30px); }
+    100% { transform: translateX(0px); }
+}
+
+        /* Links */
+.nav-links a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+.nav-links a:hover {
+            color: #ffcc00;
+        }
+.img_logo{
+    width: 100px;     /* change size as you want */
+    height: 60px;
+    margin-right: 20px;
+    display: flex;
+    
+    
+}
+/* --- Optimized Responsive Navbar --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 8px 10px; /* Slimmer vertical padding */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: linear-gradient(90deg , #141e30 ,#243b55 , #02afde);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    /* Container for Logo + Title */
+    .logo {
+        display: none !important;}
+        
+    /* The Image: Made very small to save space */
+    .img_logo {
+        width: 35px !important; 
+        height: 35px !important;
+        margin-right: 0 !important;
+        object-fit: contain;
+    }
+
+    /* The "SASON GAMES" Text */
+    .logo-text-title { /* Or whatever class your text uses */
+        font-size: 14px !important;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+    }
+
+    /* The Links: Tiny and tight on the right */
+    .nav-links {
+        display: flex !important; /* Keeps them visible */
+        gap: 8px; /* Very tight spacing */
+    }
+
+    .nav-links a {
+        margin-left: 0 !important;
+        font-size: 11px !important; /* Small font like the screenshot */
+        color: white;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+}
+/* ---------------- MOBILE ONLY (Doesn't touch Desktop) ---------------- */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Reset Body for Full Screen */
+    body {
+        background-attachment: fixed; /* Keeps background still */
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    /* 2. Navbar: Side-by-Side and Tight */
+    .navbar {
+        padding: 8px 10px !important;
+        justify-content: space-between !important;
+    }
+
+    
+    .logo {
+    display:none !important;}
+    .img_logo {
+        width: 35px !important;          /* Shrunk from 100px */
+        height: 35px !important;
+        margin-right: 0 !important;
+    }
+
+    .logo-text-title, .logo {
+        font-size: 14px !important;      /* Shrunk from 22px */
+    }
+
+    .nav-links {
+        display: flex !important;
+        gap: 8px !important;
+    }
+
+    .nav-links a {
+        margin-left: 0 !important;
+        font-size: 11px !important;
+    }
+
+    /* 3. Quiz Box: Slim and Centered */
+    .quiz-box {
+        width: 280px !important;         /* Slimmer width for mobile */
+        margin: 20px auto !important;    /* Centers horizontally */
+        padding: 20px !important;
+        box-sizing: border-box;
+    }
+
+    .title {
+        font-size: 22px !important;
+        margin-top: 20px !important;
+        margin-bottom: 15px !important;
+    }
+
+    #question {
+        font-size: 24px !important;
+        margin: 25px 0 !important;       /* Fixes the desktop 70px margin */
+    }
+
+    #answer {
+        width: 100% !important;
+        font-size: 16px !important;
+        box-sizing: border-box;
+    }
+
+    /* 4. Buttons: Side-by-side and centered */
+    #start, #stop {
+        margin-top: 20px !important;     /* Fixes the desktop 100px margin */
+        font-size: 18px !important;
+        width: 110px !important;
+        display: inline-block !important;
+    }
+
+    .info {
+        font-size: 15px !important;
+    }
+}
+/* ---------------- END OF MOBILE ONLY ---------------- */

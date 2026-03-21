@@ -1,0 +1,123 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-image: url("mode.jpg");
+   
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Keeps the image from scrolling with the content */
+    min-height: 100vh;           /* Ensures body is at least as tall as the screen */
+    width: 100%;
+}
+h1{
+     text-align: center;
+     margin-top: 250px;
+     font-size: 90px;
+     margin-bottom: 100px;
+     color: rgb(21, 255, 231);
+     filter: drop-shadow(0 0 40px #00b7f9);
+    
+  
+     font-weight: 800;
+     text-align: center;
+     opacity: 0;
+     transform: translateY(40px);
+      animation: slideFade 1.2s ease-out forwards;
+}
+
+@keyframes slideFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+     
+
+button{
+    text-align: center;
+   font-size: 20px;
+   border-radius:5% ;
+    width :200px;
+    height: 100px;
+    background-color: aquamarine;
+    color: rgb(0, 0, 0);
+    font-weight: 100;
+    margin-right:50px;
+
+    
+  box-shadow:
+    10px 10px 20px #000,
+    -10px -10px 20px #2b3a8a,
+    inset 4px 4px 8px rgba(0,0,0,0.4),
+    inset -4px -4px 8px rgba(255,255,255,0.1);
+
+  transform: translateZ(0);
+  transition: 0.3s ease;
+}
+
+    
+.btn{
+ text-align: center;
+  animation: softUpDown 3s ease-in-out infinite;
+}
+.btn:hover{
+   
+  transform: translateY(-10px) scale(1.05);
+  box-shadow:
+    15px 15px 25px #000,
+    -10px -10px 20px #3f4fcf,
+    inset 3px 3px 6px rgba(0,0,0,0.4),
+    inset -4px -4px 8px rgba(255,255,255,0.15)
+}
+
+@keyframes softUpDown {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+/* ---------------- MOBILE RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+    body {
+        /* Ensures the background image looks good on tall screens */
+        background-attachment: auto;
+        
+    }
+
+    h1 {
+        margin-top: 100px;    /* Reduced from 250px */
+        font-size: 90px;      /* Scaled down from 90px */
+        margin-bottom: 50px;
+        padding: 0 20px;      /* Prevents text touching edges */
+    }
+
+    button {
+        width: 90%;           /* Flexible width instead of 200px */
+        max-width: 300px;
+        height: 100px;         /* Slightly shorter for thumb-reach */
+        margin-right: 0px;    /* Remove right margin to center */
+        margin-bottom: 20px;  /* Space between buttons when stacked */
+        font-size: 100px;
+    }
+
+    .btn {
+        display: flex;
+        flex-direction: column; /* Stacks buttons vertically */
+        align-items: center;    /* Centers them */
+    }
+}
+
+/* For very small screens (iPhone SE, etc.) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 50px;
+        margin-top: 60px;
+    }
+    
+    button {
+        height: 60px;
+    }
+}

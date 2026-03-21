@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math-Quiz</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <div class="navbar">
+         <div class="img_logo">
+         <img src="sason_logo.png"   alt="Sason Games Logo" > 
+
+         <div  class="logo">SASON GAMES</div>
+       
+         </div>
+
+        <div class="nav-links">
+            <a href="/dashboard.html">Home</a>
+            <a href="/dashboard.html">Games</a>
+            <a href="/register.html">Register</a>
+            <a href="/login.html">Login</a>
+            <a href="logout" onclick="logoutUser()">Logout</a>
+        </div>
+    </div>
+ 
+<h1 class="title">Maths Quiz Game</h1>
+
+<!-- GAME BOX (VERY IMPORTANT) -->
+<div id="game-box">
+
+    <div class="quiz-box">
+
+        <div class="info">
+            <p>Score: <span id="score">0</span></p>
+            <p>Time: <span id="time">20</span>s</p>
+        </div>
+
+        <h2 id="question">Press Start to Begin</h2>
+
+        <input type="number" id="answer" placeholder="Enter your answer">
+
+        <button id="submit">Submit</button>
+        <button id="next">Next</button>
+        <button id="reset">Reset</button>
+
+        <p id="result"></p>
+        <p id="summary">Score: 0 / 0</p>
+
+    </div>
+
+</div>
+
+<!-- FINAL RESULT BOX -->
+<div id="final-box" 
+     style="display:none; text-align:center; margin-top:20px; font-size:40px;color:white;background-color: rgba(0, 0, 69, 0.419);">
+</div>
+
+<!-- START + STOP BUTTONS -->
+<button id="start">Start</button>
+<button id="stop">Stop</button>
+
+<script src="quiz.js"
+ function logoutUser() {
+    window.location.href = "/logout";}></script>
+
+</body>
+</html>
