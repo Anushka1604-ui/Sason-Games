@@ -81,12 +81,12 @@ body {
    CARD BACKGROUNDS (PERMANENT FIX)
    Images are in same folder as CSS
 ================================ */
-.card[data-name="dog"] .back { background-image: url('dog.png'); }
-.card[data-name="cat"] .back { background-image: url('cat.png'); }
-.card[data-name="flower1"] .back { background-image: url('fl1.png'); }
-.card[data-name="flower2"] .back { background-image: url('fl2.png'); }
-.card[data-name="scenery"] .back { background-image: url('scene.png'); }
-.card[data-name="icecream"] .back { background-image: url('ice.png'); }
+.card[data-name="dog"] .back { background-image: url('dog.PNG'); }
+.card[data-name="cat"] .back { background-image: url('cat.PNG'); }
+.card[data-name="flower1"] .back { background-image: url('fl1.PNG'); }
+.card[data-name="flower2"] .back { background-image: url('fl2.PNG'); }
+.card[data-name="scenery"] .back { background-image: url('scene.PNG'); }
+.card[data-name="icecream"] .back { background-image: url('ice.PNG'); }
 
 /* ================================
    RESET BUTTON
