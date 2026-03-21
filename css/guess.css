@@ -242,6 +242,29 @@ body {
         max-width: 90px;         /* Hard limit on width */
         margin: auto;            /* Centers cards inside their grid cells */
     }
+    .card[data-name="dog"] .back {
+    background-image: url('dog.png');
+    }
+
+    .card[data-name="cat"] .back {
+    background-image: url('cat.png');
+    }
+
+    .card[data-name="flower1"] .back {
+    background-image: url('fl1.png');
+    }
+
+    .card[data-name="flower2"] .back {
+    background-image: url('fl2.png');
+    }
+
+    .card[data-name="scenery"] .back {
+    background-image: url('scene.png');
+    }
+
+    .card[data-name="icecream"] .back {
+    background-image: url('ice.png');
+    }
 
     /* 3. Centering the Reset Button */
     .reset-btn {
