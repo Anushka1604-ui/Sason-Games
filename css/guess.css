@@ -297,7 +297,7 @@ body {
 @media (max-width: 768px) {
     /* 1. Ensure the back of the card is visible and white */
     .card .back {
-        background-size: contain !important;
+        background-size: cover !important;
         background-repeat: no-repeat !important;
         background-position: center !important;
         background-color: #ffffff !important; 
