@@ -1,5 +1,7 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +13,7 @@
 
     <!-- NAVBAR -->
     <div class="navbar">
+
         <div class="img_logo">
             <img src="/sason_logo.png" alt="Sason Games Logo">
             <div class="logo">SASON GAMES</div>
@@ -19,86 +22,99 @@
         <div class="nav-links">
             <a href="/dashboard">Home</a>
             <a href="/dashboard">Games</a>
-            <a href="/register">Register</a>
-            <a href="/login">Login</a>
-            <a href="#" onclick="logoutUser()">Logout</a>
         </div>
+
     </div>
+
 
     <!-- SIDEBAR -->
     <div class="sidebar">
+
         <h2 class="logo-text">SASON GAMES</h2>
 
         <ul class="nav-links-side">
-            <li><a href="/dashboard">🏠 Dashboard</a></li>
-            <li><a href="/modettt.html">🎮 Tic Tac Toe</a></li>
-            <li><a href="/s-p-s.html">🪨✂️📄 Stone Paper Scissor</a></li>
-            <li><a href="/card.html">🃏 Memory Card Guess</a></li>
-            <li><a href="/quiz.html">🧠 Maths Quiz</a></li>
 
+            <li>
+                <a href="/dashboard">🏠 Dashboard</a>
+            </li>
+
+            <li>
+                <a href="/modettt.html">🎮 Tic Tac Toe</a>
+            </li>
+
+            <li>
+                <a href="/s-p-s.html">🪨✂️📄 Stone Paper Scissor</a>
+            </li>
+
+            <li>
+                <a href="/card.html">🃏 Memory Card Guess</a>
+            </li>
+
+            <li>
+                <a href="/quiz.html">🧠 Maths Quiz</a>
+            </li>
+
+            <!-- SETTINGS -->
             <div class="dropdown">
+
                 <button class="dropbtn">⚙ Settings</button>
+
                 <div class="dropdown-content">
+
                     <li>
                         <a href="/contactus.html">Contact Us</a>
-                        <a href="/register">Register</a>
-                        <a href="/login">Login</a>
-                        <a href="#" onclick="logoutUser()">Logout</a>
                     </li>
+
                 </div>
+
             </div>
+
         </ul>
+
     </div>
+
 
     <!-- GAME CARDS -->
     <div class="container">
-        <a href="modettt.html"><div class="container1"></div></a> 
-        <a href="s-p-s.html"><div class="container2"></div></a>
-        <a href="card.html"><div class="container3"></div></a>
-        <a href="quiz.html"><div class="container4"></div></a>
+
+        <a href="modettt.html">
+            <div class="container1"></div>
+        </a>
+
+        <a href="s-p-s.html">
+            <div class="container2"></div>
+        </a>
+
+        <a href="card.html">
+            <div class="container3"></div>
+        </a>
+
+        <a href="quiz.html">
+            <div class="container4"></div>
+        </a>
+
     </div>
+
 
     <!-- FOOTER -->
     <footer class="footer">
+
         <h5>About Us</h5>
 
         <div class="abt">
-            Sason Games is a fun and interactive platform offering classic games like Tic Tac Toe,
-            Stone Paper Scissors, Card Guessing Game, and a Maths Quiz. Designed with simplicity
-            and creativity, it provides an enjoyable experience for all ages.
+            Sason Games is a fun and interactive platform offering classic games like
+            Tic Tac Toe, Stone Paper Scissors, Card Guessing Game, and a Maths Quiz.
+            Designed with simplicity and creativity, it provides an enjoyable experience
+            for all ages.
         </div>
 
-        <p>© 2026 Sason Games | Created by Anushka Singh | All Rights Reserved</p>
+        <p>
+            © 2026 Sason Games | Created by Anushka Singh | All Rights Reserved
+        </p>
+
     </footer>
 
-    <!-- AUTH SCRIPT -->
-    <script>
-        // 🔐 Check login
-        if (!localStorage.getItem("token")) {
-            window.location.href = "/login";
-        }
-
-        // 🧑‍💻 Fetch dashboard user data
-        fetch("/dashboard-data", {
-            headers: {
-                "Authorization": localStorage.getItem("token")
-            }
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log("Logged-in User:", data);
-        })
-        .catch(err => {
-            console.log("Auth error:", err);
-            window.location.href = "/login";
-        });
-
-        // 🚪 Logout
-        function logoutUser() {
-            localStorage.removeItem("token");  // remove JWT
-            window.location.href = "/login";   // redirect
-        }
-    </script>
-
 </body>
+
 </html>
+```
