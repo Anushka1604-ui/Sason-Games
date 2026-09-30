@@ -58,11 +58,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/register", (req, res) => {
-    res.sendFile(path.join(__dirname, "html", "register.html"));
+    res.sendFile(path.join(__dirname, "html", "login.html"));
 });
 
 app.get("/login", (req, res) => {
-    res.sendFile(path.join(__dirname, "html", "login.html"));
+    res.sendFile(path.join(__dirname, "html", "dashboard.html"));
 });
 
 app.get("/dashboard", verifyToken, (req, res) => {
